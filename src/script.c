@@ -380,7 +380,7 @@ stack_push(EmbStack *stack, char *token)
     int all_digits = 1;
     int decimal_place_present = 0;
     if (token[0] == 0) {
-        return;
+        return 0;
     }
     strncpy(stack->stack[stack->position].s, token, 200);
     stack->position++;    
