@@ -5278,8 +5278,8 @@ pesWriteSewSegSection(EmbPattern* pattern, FILE* file)
         for (j = i; j < pattern->stitch_list->count; ++j) {
             st = pattern->stitch_list->stitch[j];
             if (st.flags != flag) {
-				break;
-			}
+                break;
+            }
             emb_write_i16(file, (int16_t)(st.x - bounds.x));
             emb_write_i16(file, (int16_t)(st.y + bounds.y));
         }
