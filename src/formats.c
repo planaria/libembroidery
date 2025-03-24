@@ -5251,7 +5251,7 @@ pesWriteSewSegSection(EmbPattern* pattern, FILE* file)
         color = pattern->thread_list->thread[st.color].color;
         newColorCode = emb_find_nearest_thread(color, (EmbThread*)pec_colors, pecThreadCount);
         if (newColorCode != colorCode) {
-            if (colorInfoIndex+2 > colorCount) {
+            if (colorInfoIndex+2 > colorCount * 2) {
                 puts("Ran out of memory for color info.");
                 break;
             }
