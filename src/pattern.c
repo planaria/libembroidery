@@ -3863,20 +3863,20 @@ emb_pattern_bounds(EmbPattern* p)
     if ((p->stitch_list->count == 0) && (p->geometry->count == 0)) {
         return r;
     }
-    r.x = -99999.0;
-    r.y = -99999.0;
-    double right = 99999.0;
-    double bottom = 99999.0;
+    r.x = 99999.0;
+    r.y = 99999.0;
+    double right = -99999.0;
+    double bottom = -99999.0;
 
     for (i = 0; i < p->stitch_list->count; i++) {
         /* If the point lies outside of the accumulated bounding
          * rectangle, then inflate the bounding rect to include it. */
         pt = p->stitch_list->stitch[i];
         if (!(pt.flags & TRIM)) {
-            r.x = EMB_MAX(r.x, pt.x);
-            r.y = EMB_MAX(r.y, pt.y);
-            right = EMB_MIN(right, pt.x);
-            bottom = EMB_MIN(bottom, pt.y);
+            r.x = EMB_MIN(r.x, pt.x);
+            r.y = EMB_MIN(r.y, pt.y);
+            right = EMB_MAX(right, pt.x);
+            bottom = EMB_MAX(bottom, pt.y);
         }
     }
 
